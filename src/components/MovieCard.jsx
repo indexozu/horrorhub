@@ -6,7 +6,7 @@ const { title, poster_path, vote_average, release_date } = movie;
 const posterURL = `https://image.tmdb.org/t/p/w500/${poster_path}`;
 
 return (
-    <a href={`https://www.themoviedb.org/movie/${movie.id}`} target="_blank" rel="noopener noreferrer">
+    <a href={`https://www.themoviedb.org/movie/${movie.id}`}>
         <div className="movie-card" style={{
             backgroundImage: `url(${posterURL})`,
             backgroundSize: 'cover',
@@ -17,7 +17,7 @@ return (
             <AddToFavorites movie={movie.id} />
             <div className="movie-details">
                 <h3>{title}</h3>
-                <p>⭐ {vote_average.toFixed(1)}</p>
+                <p>⭐ {vote_average.toFixed(1)}</p> 
                 <p>📅 {release_date}</p>
             </div>
         </div>

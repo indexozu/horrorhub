@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import axios from 'axios';
 import MovieCard from '../components/MovieCard';
 
@@ -7,9 +7,12 @@ const Favorites = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
+    const favoriteIds = useMemo(() => JSON.parse(localStorage.getItem('favorites') || '[]'), []); // Retrieve favorites[] from localStorage
+    
     useEffect(() => {
+
+        // fetchFavoriteMovies fetches the movie details from TMDB API according to the IDs fetched from localStorage, listing them on the page.
         const fetchFavoriteMovies = async () => {
-            const favoriteIds = JSON.parse(localStorage.getItem('favorites') || '[]');
             
             if (favoriteIds.length === 0) {
                 setLoading(false);
@@ -39,7 +42,7 @@ const Favorites = () => {
         };
 
         fetchFavoriteMovies();
-    }, []); // Empty dependency array means this runs once on mount
+    }, []);
 
     if (loading) return <div style={{ textAlign: 'center' }}>Loading your favorites...</div>;
     if (error) return <div style={{ textAlign: 'center' }}>{error}</div>;
