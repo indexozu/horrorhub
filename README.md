@@ -5,7 +5,7 @@ Web Programming I Final Project created by Batuhan Gindeközü.
 ## Features
 
 - Simple visuals of the latest popular movie titles.
-- Uses TheMovieDB API for accessing titles and images.
+- Uses [TheMovieDB API](https://developer.themoviedb.org/docs/getting-started) for accessing titles and images.
 - Save your favorites with a single click
 - Export your favorites in .txt format as titles or in .json format.
 
