@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  background-color: #1a1a1a;
+  color: white;
+  position: relative;
+  align-items: center;
+}
+
+.home-page > p, h1{
+  text-align: center;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 1rem;
+  width: 100%;
+}
+
+nav a {
+  color: white;
+  padding: 0.5rem;
+  flex: 1;
+  text-align: center;
+  transition: background-color 0.2s, font-size 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+nav a:hover {
+  background-color: #333;
+}
+
+nav a.active {
+  background-color: #444;
+  font-weight: 800;
+  font-size: 1.2em;
+}
+
+nav a:first-child {
+  border-radius: 20px 2px 2px 20px;
+}
+
+nav a:nth-child(2) {
+  border-radius: 2px;
+}
+
+nav a:last-child {
+  border-radius: 2px 20px 20px 2px;
+}
+
+@media (max-width: 500px) {
+  nav {
+    padding: 1rem 0;
+  }
+}
+
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  margin: 0 auto;
+  padding: 1rem;
+  max-width: 80%;
+}
+
+@media (max-width: 1200px) {
+  .movies-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    max-width: 100%;
+  }
+}
+
+.movie-card {
+  position: relative;
+  color: white;
+  border-radius: 32px 32px 8px 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.movie-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: inherit;
+  background-size: inherit;
+  background-position: inherit;
+  filter: grayscale(100%) brightness(70%);
+  z-index: 0;
+  transition: filter 0.3s ease;
+}
+
+.movie-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 10px rgba(150, 150, 255, 0.2);
+}
+
+.movie-card:hover::before {
+  filter: grayscale(0%) brightness(100%);
+}
+
+.movie-details {
+  position: absolute;
+  background: linear-gradient(to top, rgba(0, 0, 0, 1) 33%, rgba(0, 0, 0, 0) 80%);
+  width: 100%;
+  border-radius: 32px 32px 8px 8px;
+  padding: 1rem;
+  bottom: 0;
+  left: 0;
+  box-sizing: border-box;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  z-index: 2;
+}
+
+a {
+  text-decoration: none;
+}
+
+.a:active {
+  filter: grayscale(0%) brightness(100%);
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.pagination button {
+  padding: 0.5rem 1rem;
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  width: 100px;
+}
+
+.pagination button:first-child {
+  border-radius: 20px 2px 2px 20px;
+}
+
+.pagination button:last-child {
+  border-radius: 2px 20px 20px 2px;
+}
+
+.pagination button:hover:not(:disabled) {
+  background-color: #444;
+}
+
+.pagination button:disabled {
+  background-color: #222;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.pagination span {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.favorite-button:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s ease;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 1em;
+}
+
+footer * {
+  text-align: center;
+  align-items: center;
+}
+
+.export-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+}
+
+.export-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  background-color: #444;
+}
+
+.export-button:hover {
+  background-color: #555;
+}
+
+.export-buttons :first-child {
+  border-radius: 20px 2px 2px 20px;
+}
+
+.export-buttons :last-child {
+  border-radius: 2px 20px 20px 2px;
+}
